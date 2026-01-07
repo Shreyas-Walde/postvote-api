@@ -1,6 +1,8 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Annotated
+from pydantic import Field
+from pydantic.types import conint
 
 # Users -> DB
 # define class for (Pydantic) -> validation
@@ -32,12 +34,15 @@ class Post(PostBase):
     class Config:
         from_attributes = True 
 
+class PostOut(BaseModel):
+    Post: Post
+    votes: int
+
 
 # Create User
 class UserCreate(BaseModel):
     email: EmailStr
     password: str
-
 
          
 
@@ -53,3 +58,8 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     id: Optional[int] = None
+
+class Vote(BaseModel):
+    post_id: int 
+    dir: Annotated[int, Field(le=1, ge=0)] #le -> less than equal to 
+ 
