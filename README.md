@@ -32,7 +32,7 @@ It is designed as a learning project and demonstrates core social media backend 
 
 ### Prerequisites
 
-- Python 3.13+
+- Python 3.10+
 - PostgreSQL
 - uv (recommended) or pip
 
