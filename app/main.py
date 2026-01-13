@@ -28,9 +28,9 @@ app.include_router(auth.router)
 app.include_router(vote.router)
 
 #   get -> http method to read
-@app.get("/")    # decorator and read
+@app.get("/")
 def root():
-    return {"message": "Hello Everynya how are yo?"}
+    return {"message": "Hello World pushing"}
 
 # example database 
 
@@ -45,9 +45,6 @@ def root():
 #     for i, p in enumerate(my_posts):
 #         if p['id'] == id:
 #             return i 
-
-
-
 
 # # for test
 # @app.get("/sqlalchemy")
